@@ -1,0 +1,16 @@
+<script src="angular.min.js"></script>
+
+<div ng-app="newApp" ng-Controller="newCtrl">
+	<p>City: <input type="text" ng-model="City"></p>
+	<p>Country: <input type="text" ng-model="Country"></p>
+	
+	City & Country: {{City + ", " + Country}}
+	
+	<script>
+		var app = angular.module('newApp',[]);
+		app.controller('newCtrl', function($scope){
+		$scope.City = "Sofia";
+		$scope.Country = "Bulgaria";
+		})
+	</script>
+</div>
