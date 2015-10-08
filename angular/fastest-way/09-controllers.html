@@ -1,0 +1,18 @@
+<script src="angular.min.js"></script>
+
+<div ng-app="newApp" ng-controller="newController">
+
+Name: <input type="text" ng-model="Name" />
+Age: <input type="text" ng-model="Age" />
+Name and age: {{ Name + ', ' + Age }}
+
+
+<script>
+	var app = angular.module('newApp', []);
+	app.controller('newController', function($scope){
+		$scope.Name = 'Jack';
+		$scope.Age = '18';
+	})
+</script>
+
+</div>

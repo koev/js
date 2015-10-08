@@ -1,0 +1,24 @@
+<script src="angular.min.js"></script>
+
+<div ng-app="" ng-init="
+Names=['Johnnie' , 'Jim', 'Jack']; 
+ages= [
+	{name: 'Johnnie', age: 12},
+	{name: 'Jim', age: 15},
+	{name: 'Jack', age: 18},
+]">
+
+<ul>
+	<li ng-repeat="x in Names">
+	{{ x }}
+	</li>
+</ul>
+<ul>
+	<li ng-repeat="x in ages">
+	{{ x.name  + ', ' + x.age + ' years old' }}
+	</li>
+</ul>
+
+
+
+</div>
