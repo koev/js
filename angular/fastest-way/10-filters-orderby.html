@@ -1,0 +1,24 @@
+<script src="angular.min.js"></script>
+
+<div ng-app="newApp" ng-controller="nameC">
+
+
+	<ul>
+		<li ng-repeat="x in name | orderBy: 'years'">
+			{{x.name + ', ' + x.years}}
+		</li>
+	</ul>
+
+
+
+	<script>
+		angular.module('newApp', []).controller('nameC',function($scope){
+			$scope.name = [
+				{name: 'Johnnie', years: 18},
+				{name: 'Jack', years: 15},
+				{name: 'Jameson', years: 12},
+			]
+		});
+	</script>
+
+</div>
