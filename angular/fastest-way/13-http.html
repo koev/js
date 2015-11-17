@@ -1,0 +1,21 @@
+<script src="angular.min.js"></script>
+
+<div ng-app="newApp" ng-controller="peopleC">
+
+	<ul>
+		<li ng-repeat="x in people">
+		 {{ x.Name + ', ' + x.State }}
+		</li>
+	</ul>
+
+
+
+	<script>
+		angular.module('newApp', []).controller('peopleC',function($scope){
+			$http.get("http://").success(function(response){
+			$scope.names = response.records;
+			})
+		});
+	</script>
+
+</div>

@@ -1,0 +1,19 @@
+<script src="angular.min.js"></script>
+
+<div ng-app="newApp" ng-controller="newC">
+
+	<button ng-click="count = count + 1">Count</button>
+
+	<p>{{ count }}</p>
+
+
+
+</div>
+
+<script type="text/javascript">
+	var app = angular.module('newApp',[]);
+	app.controller('newC', 
+		function($scope){
+		$scope.count = 0;
+	});
+</script>
