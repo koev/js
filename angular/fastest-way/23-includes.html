@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<script src="angular.min.js"></script>
+
+
+<body ng-app="myApp" ng-controller="userCtrl">
+
+<div class="div">
+	<div ng-include="'23-include-html.html'">12</div>
+</div>
+
+
+
+<script type="text/javascript" >
+	
+
+	
+	
+	
+	
+		var app = angular.module('myApp',[]);
+
+
+	app.controller('userCtrl', 
+		function($scope){
+		$scope.email= 'sdede@google.com';
+	});
+</script>
+
+</body>
+</html>
