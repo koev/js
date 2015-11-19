@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<script src="angular.min.js"></script>
+
+
+<body ng-app="myNoteApp" ng-controller="myNoteCtrl">
+
+<h2>Note App</h2>
+
+<textarea ng-model="message" cols="40" rows="10"></textarea>
+
+
+<p>
+	<button ng-click="save()">Save</button>
+	<button ng-click="clear()">Clear</button>
+</p>
+
+<p>Number of characters left: <span ng-bind="left()"></span></p>
+
+
+<script type="text/javascript" >
+	var app = angular.module('myNoteApp',[]);
+
+	app.controller('myNoteCtrl', 
+		function($scope){
+			$scope.message = "";
+			$scope.left = function() {
+				return 100 - $scope.message.length;
+			};
+			$scope.clear = function() {
+				$scope.message = "";
+			};
+			$scope.save = function() {
+				alert('Note Saved');
+			};
+			
+		});
+</script>
+
+</body>
+</html>

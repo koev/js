@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<script src="angular.min.js"></script>
+
+
+<body>
+
+<div ng-app="newApp" ng-controller="newC">
+	<p> {{ y1 }}</p>
+	<p> {{ y2 }}</p>
+</div>
+
+
+<script type="text/javascript" >
+	var app = angular.module('newApp',[]);
+
+	app.controller('newC', 
+		function($scope){
+			$scope.y1 = "Koev";
+			$scope.y2 = angular.lowercase($scope.y1);
+			//$scope.y2 = angular.uppercase($scope.y1);
+			//$scope.y2 = angular.isString($scope.y1);
+			//$scope.y2 = angular.isNumber($scope.y1);
+		});
+</script>
+
+</body>
+</html>
