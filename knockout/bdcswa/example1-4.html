@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data Binding with KnockoutJS</title>
+</head>
+<body>
+	<h1>Hello <span data-bind="text: name"></span></h1>
+	<script type='text/javascript' src='js/knockout-3.4.0.js'></script>
+	<script>
+		var ViewModel = function(name) {
+			var self = this;
+			
+			self.name = name;
+			
+			self.getName = function() {
+				return self.name;
+			};
+		};
+		var myThirdViewModel = new ViewModel('Steve Kennedy 3');
+		
+		ko.applyBindings(myThirdViewModel);
+	</script>
+</body>
+</html>
