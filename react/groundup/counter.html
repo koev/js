@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <script src="https://fb.me/react-0.14.7.js"></script>
+        <script src="https://fb.me/react-dom-0.14.7.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        
+        <script type="text/babel">
+        let sum = 0;
+        var NameStateComponent = React.createClass({
+        
+            propTypes: {
+                count: React.PropTypes.number,
+                sum: React.PropTypes.number
+            },
+            
+            resetName: function(){
+                this.setState({
+                    name: ''
+                })
+            },
+            addNumber: function(event){
+                
+                sum += parseInt(event.target.value)
+                
+                this.setState({
+                    count: sum
+                })
+            },
+
+            getInitialState: function(){
+                return {
+                    count: 0
+                }
+            },
+            
+            render: function(){ 
+                return (
+                    <div>
+                        <h1>Count {this.state.count}</h1>
+                        <br /><br />
+                        <button value="1" onClick={this.addNumber}>Add 1</button>
+                        <button value="5" onClick={this.addNumber}>Add 5</button>
+                        <button value="10" onClick={this.addNumber}>Add 10</button>
+                        <br /><br />
+                        <button onClick={this.resetName}>Reset</button>
+                    </div>
+                )
+            }
+        })
+        
+        ReactDOM.render(
+        <NameStateComponent />,
+        document.getElementById('app')
+        )
+        
+        
+        </script>
+    </body>
+</html>
