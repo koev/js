@@ -32,7 +32,7 @@
              return({
                 count: 0
              })
-            },
+            }, 
             
             // 3 called ONCE
             // BEFORE COMPONENT IS RENDERED
@@ -55,13 +55,48 @@
             // after component has rendered
             componentDidMount: function(){
                 console.log('component has rendered');
-                console.log(ReactDOM.findDOMNode(this));
+                //console.log(ReactDOM.findDOMNode(this));
+                this.interval = setInterval(this.increment, 1000);
+            },
+            
+            //6 only once
+            //after component has rendered
+            componentWillUnmount: function(){
+                clearInterval(this.interval);
+                console.log('component unmounted')
             }
+            
         });
         
+        
+        var LifecycleContainer = React.createClass({
+            mount: function(){
+                ReactDOM.render(
+                    <LifecycleComponent />,
+                    document.getElementById('renderHere')
+                );
+            },
+            unmount: function(){
+                ReactDOM.unmountComponentAtNode(
+                    document.getElementById('renderHere')
+                );
+            },
+            render: function() {
+                console.log('lifecycle container rendered');
+                
+                return (
+                    <div>
+                        <button onClick={this.mount}>Mount</button>
+                        <button onClick={this.unmount}>Unmount</button>
+                        <div id="renderHere"></div>
+                    </div>
+                )
+            }
+        })
+        
         ReactDOM.render(
-        <LifecycleComponent />,
-        document.getElementById('app')
+            <LifecycleContainer />,
+            document.getElementById('app')
         );
         
         </script>
