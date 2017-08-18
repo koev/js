@@ -11,7 +11,77 @@
         
         <script type="text/babel">
         
+        // higher level component
+        let BaseCount = (BasicComponent) => class extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = { count: 0 , text: "hello"}
+                this.incrementCount = this.incrementCount.bind(this)
+            }
+            
+            incrementCount() {
+                
+                this.setState({
+                    count: this.state.count + 1
+                })
+            }
+            
+            render() {
+                return (
+                    <div className="container">
+                        <BasicComponent {...this.state} increment={this.incrementCount} />
+                    </div>
+                )
+            }
+        }
         
+        //stateless functional component
+        const Button = (props) => {
+            console.log(props)
+            return (
+                <button className="btn" onClick={props.increment}>count: {props.count}</button>
+            )
+        }
+        
+        const Label = (props) => {
+            return (
+                <label onMouseMove={props.increment}>count {props.count}</label>
+            )
+        }
+        
+        
+        let ExtentedButton = BaseCount(Button)
+        let ExtentedLabel = BaseCount(Label)
+        
+        /*
+        class Container extends React.Component {
+            render(){
+                return (
+                    <div>
+                        <ExtentedButton />
+                        <ExtentedLabel />
+                    </div>
+                )
+            }
+        }
+        */
+        
+        //stateless functional component
+        const Container () => {
+            return (
+                <div>
+                    <ExtentedButton />
+                    <ExtentedLabel />
+                </div>
+            )
+        }
+        
+        
+        
+        ReactDOM.render(
+            <Container />,
+            document.getElementById('app')
+        )
         
         </script>
     </body>
