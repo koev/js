@@ -16,6 +16,7 @@ local.properties
 .classpath
 .settings/
 .loadpath
+react/groundup/node-webpack/node_modules/
 
 # External tool builders
 .externalToolBuilders/
