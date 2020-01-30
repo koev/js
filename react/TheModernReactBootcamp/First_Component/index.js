@@ -15,7 +15,7 @@ function Hello2() {
 		<div>
 			<h1>Hello there2!</h1>
 			<h1>Hello there2!</h1>
-			<h1>Hello there!</h1>
+			<h1>Hello there2!</h1>
 		</div>
 	);
 }
