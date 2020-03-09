@@ -14,17 +14,17 @@ class BoxList extends Component {
             ]
         }
         this.addBox = this.addBox.bind(this);
-        this.removeBox = this.removeBox.bind(this);
     }
 
+    //option 1 - called with arrow function inline
     removeBox(id) {
-        console.log('remove')
         this.setState(state => ({
             boxes: state.boxes.filter(b => b.id !== id)
         }));
 
     }
 
+    //option 2 - binded and called inside the child component
     addBox(item) {
         let newItem = { ...item };
         this.setState(state => ({
@@ -41,6 +41,7 @@ class BoxList extends Component {
         h={b.height}
         key={b.id}
         removeBox={() => this.removeBox(b.id)}
+        //removeBox={this.removeBox}
         id={b.id}
         />
         )

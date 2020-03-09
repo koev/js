@@ -2,6 +2,18 @@ import React , { Component } from 'react';
 
 class Box extends Component {
 
+/*
+    constructor(props) {
+        super(props);
+
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(){
+        this.props.removeBox(this.props.id)
+    }
+    */
+
     render() {
         const styles = {
             backgroundColor: this.props.bgc,
@@ -13,7 +25,7 @@ class Box extends Component {
                 <div style={styles}>
                     box
                 </div>
-                <button onClick={this.props.removeBox}>x</button>
+                <button /*onClick={this.handleClick} */    onClick={this.props.removeBox}>x</button>
             </div>
         );
     }
