@@ -3,10 +3,17 @@ import React , { Component } from 'react';
 class Box extends Component {
 
     render() {
-        const styles = { backgroundColor: this.props.bgc, width: this.props.w+'em', height: this.props.h+'em' };
+        const styles = {
+            backgroundColor: this.props.bgc,
+            width: this.props.w+'em',
+            height: this.props.h+'em'
+        };
         return (
-            <div style={styles}>
-                box
+            <div>
+                <div style={styles}>
+                    box
+                </div>
+                <button onClick={this.props.removeBox}>x</button>
             </div>
         );
     }
